@@ -1,0 +1,26 @@
+ubuntu@ip-172-31-35-80:~$ sudo apt-get update
+ubuntu@ip-172-31-35-80:~$ sudo apt install python3-pip
+ubuntu@ip-172-31-35-80:~$ pip install openai
+ubuntu@ip-172-31-35-80:~$ pip install constants
+ubuntu@ip-172-31-35-80:~$ pip install chromadb
+ubuntu@ip-172-31-35-80:~$  pip install langchain
+ubuntu@ip-172-31-35-80:~$ pip install tiktoken
+
+
+>>> import os, sys, constants
+>>> from langchain.document_loaders import TextLoader
+>>> from langchain.indexes import VectorstoreIndexCreator
+>>> API_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+>>> os.environ["OPENAI_API_KEY"] = API_KEY
+>>> query  = "what is new with elon musk"
+>>> loader = TextLoader('input.txt')
+>>> index = VectorstoreIndexCreator().from_loaders([loader])
+>>> print(index.query(query))
+ Elon Musk recently shared a throwback photo of his ex Amber Heard on social media just one day after his new biography, in which he reflected on their "brutal" romance, was published.
+>>> query  = "what company does elon musk lead"
+>>> print(index.query(query))
+ Elon Musk is the CEO of Tesla and SpaceX.
+>>> query  = "how did elon musk get wealthy"
+>>> print(index.query(query))
+ Elon Musk became wealthy through his entrepreneurial ventures. He is the founder of several companies, including Tesla, SpaceX, and The Boring Company. He has also invested in other companies, such as SolarCity.
+>>>
