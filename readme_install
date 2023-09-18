@@ -7,6 +7,9 @@ ubuntu@ip-172-31-35-80:~$  pip install langchain
 ubuntu@ip-172-31-35-80:~$ pip install tiktoken
 
 
+
+https://platform.openai.com/account/api-keys
+
 >>> import os, sys, constants
 >>> from langchain.document_loaders import TextLoader
 >>> from langchain.indexes import VectorstoreIndexCreator
